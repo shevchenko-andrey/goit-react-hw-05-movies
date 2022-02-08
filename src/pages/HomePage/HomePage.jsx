@@ -4,7 +4,7 @@ import MoviesList from 'components/MoviesList';
 
 import status from 'constants/status';
 
-import { getTrendingMovies } from '../moviesAPI/moviesAPI';
+import { getTrendingMovies } from '../../moviesAPI/moviesAPI';
 
 const { IDLE, REJECTED, RESOLVED, PENDING } = status;
 
