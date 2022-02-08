@@ -23,3 +23,7 @@ export const getConfig = async () => {
   const response = await axios.get(`${imageConfig}?${API_KEY}`);
   return response.data;
 };
+export const getReviews = async id => {
+  const response = await axios.get(`/movie/${id}/reviews?${API_KEY}`);
+  return response.data;
+};
