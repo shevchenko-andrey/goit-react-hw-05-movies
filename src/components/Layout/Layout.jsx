@@ -5,7 +5,8 @@ const Layout = () => {
     <div>
       <nav>
         <NavLink to="/">Home</NavLink>
-        {/* <NavLink to="/movies">Movies</NavLink> */}
+        <hr></hr>
+        <NavLink to="/movies">Movies</NavLink>
       </nav>
       <Suspense fallback="">
         <Outlet />
