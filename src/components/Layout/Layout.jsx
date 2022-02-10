@@ -1,17 +1,24 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
+import { Navigation, ImgWrapper, RouteNavLink, Header } from './Layout.styled';
+import sourceFilm from '../../images/sourceFilms.svg';
 const Layout = () => {
   return (
-    <div>
-      <nav>
-        <NavLink to="/">Home</NavLink>
-        <hr></hr>
-        <NavLink to="/movies">Movies</NavLink>
-      </nav>
+    <>
+      <Header>
+        <Navigation>
+          <RouteNavLink to="/">Home</RouteNavLink>
+
+          <RouteNavLink to="/movies">Movies</RouteNavLink>
+        </Navigation>
+        <ImgWrapper>
+          <img alt="source films" src={sourceFilm} />
+        </ImgWrapper>
+      </Header>
       <Suspense fallback="">
         <Outlet />
       </Suspense>
-    </div>
+    </>
   );
 };
 export default Layout;
