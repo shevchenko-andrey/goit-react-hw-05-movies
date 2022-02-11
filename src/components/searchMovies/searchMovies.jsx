@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { SearchInput, SearchForm } from './searchMovies.styled';
+import { Button } from '../Button/Button';
 const SearchMovies = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
   const handleSubmit = e => {
@@ -6,18 +9,18 @@ const SearchMovies = ({ onSubmit }) => {
     onSubmit(query);
     setQuery('');
   };
+  console.log(query);
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        <input
-          value={query}
-          onChange={e => setQuery(e.target.value)}
-          placeholder="please input movie name"
-          type="text"
-        />
-      </label>
-      <button />
-    </form>
+    <SearchForm onSubmit={handleSubmit}>
+      <SearchInput
+        value={query}
+        onChange={e => setQuery(e.target.value)}
+        placeholder="Search movies"
+        type="text"
+      />
+
+      <Button>Search</Button>
+    </SearchForm>
   );
 };
 export default SearchMovies;

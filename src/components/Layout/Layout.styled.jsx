@@ -21,7 +21,7 @@ export const Navigation = styled.div`
   margin-right: 150px;
 `;
 export const RouteNavLink = styled(NavLink)`
-  transition: hover 0.2s linear;
+  transition: color 0.2s linear;
   padding: 20px 0px;
 
   &:hover,

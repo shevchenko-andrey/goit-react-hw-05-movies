@@ -52,6 +52,10 @@ button {
   background-color: transparent;
   cursor: pointer;
 }
+
+section {
+  padding: 100px 0px;
+}
 `;
 
 export default GlobalStyle;

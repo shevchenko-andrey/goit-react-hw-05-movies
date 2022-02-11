@@ -1,9 +1,16 @@
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
+import { StyledMoviesItem, MoviesLink } from './MoviesItem.styled';
 const MoviesItem = ({ name, id }) => {
+  const location = useLocation();
   return (
-    <li>
-      <Link to={`/movies/${id}`}>{name}</Link>
-    </li>
+    <StyledMoviesItem>
+      <MoviesLink to={`/movies/${id}`}>{name}</MoviesLink>
+    </StyledMoviesItem>
   );
+};
+MoviesItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 export default MoviesItem;

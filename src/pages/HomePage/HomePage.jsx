@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-
+import { toast } from 'react-hot-toast';
 import MoviesList from 'components/MoviesList';
-
+import { Home, HomeTitle } from './HomePage.styled';
 import status from 'constants/status';
-
+import BackLink from '../../components/backLink';
 import { getTrendingMovies } from '../../moviesAPI/moviesAPI';
-
+import toastErrorConfig from '../../constants/toastErrorConfig';
 const { IDLE, REJECTED, RESOLVED, PENDING } = status;
 
 const HomePages = () => {
@@ -17,25 +17,31 @@ const HomePages = () => {
       try {
         const response = await getTrendingMovies(1);
         const { results } = response;
-        console.log(results);
         setMovies(results);
         setStatus(RESOLVED);
       } catch {
         setStatus(REJECTED);
+        toast.error(
+          'Please check your connection and try again',
+          toastErrorConfig
+        );
       }
     };
     fatchMovies();
   }, []);
   if (status === RESOLVED) {
     return (
-      <main>
+      <Home>
         <section>
+          <BackLink />
+          <HomeTitle>Trending today</HomeTitle>
           <MoviesList movies={movies} />
         </section>
-      </main>
+      </Home>
     );
   }
 
   return <main></main>;
 };
+
 export default HomePages;
