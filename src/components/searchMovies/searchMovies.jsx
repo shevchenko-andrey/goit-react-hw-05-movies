@@ -6,10 +6,9 @@ const SearchMovies = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
   const handleSubmit = e => {
     e.preventDefault();
-    onSubmit(query);
+    onSubmit({ query: query });
     setQuery('');
   };
-  console.log(query);
   return (
     <SearchForm onSubmit={handleSubmit}>
       <SearchInput

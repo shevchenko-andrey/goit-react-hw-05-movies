@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import MoviesItem from 'components/MoviesItem';
 import { StyledMoviesList } from './MoviesList.styled';
 const MoviesList = ({ movies }) => {
-  console.log(movies, 'dfgtyty');
   return (
     <StyledMoviesList>
       {movies.map(movie => {

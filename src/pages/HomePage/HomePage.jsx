@@ -33,7 +33,6 @@ const HomePages = () => {
     return (
       <Home>
         <section>
-          <BackLink />
           <HomeTitle>Trending today</HomeTitle>
           <MoviesList movies={movies} />
         </section>

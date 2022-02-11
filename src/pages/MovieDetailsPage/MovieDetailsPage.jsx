@@ -3,7 +3,7 @@ import { Outlet, Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 import { useState, useEffect, Suspense } from 'react';
-
+import BackLink from 'components/backLink';
 import { getMovieDetailsById, getConfig } from 'moviesAPI/moviesAPI';
 import Loader from '../../components/Loader/Loader';
 import status from 'constants/status';
@@ -44,6 +44,7 @@ const MovieDetailsPage = () => {
 
   return (
     <main>
+      <BackLink />
       <section>
         {status === PENDING && <Loader />}
         {status === RESOLVED && (

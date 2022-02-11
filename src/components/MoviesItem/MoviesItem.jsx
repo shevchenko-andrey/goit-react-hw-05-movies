@@ -5,7 +5,9 @@ const MoviesItem = ({ name, id }) => {
   const location = useLocation();
   return (
     <StyledMoviesItem>
-      <MoviesLink to={`/movies/${id}`}>{name}</MoviesLink>
+      <MoviesLink to={`/movies/${id}`} state={{ from: location }}>
+        {name}
+      </MoviesLink>
     </StyledMoviesItem>
   );
 };

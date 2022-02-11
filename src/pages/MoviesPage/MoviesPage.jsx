@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 
 import MoviesList from '../../components/MoviesList';
 
+import { useSearchParams } from 'react-router-dom';
+
 import { getSearchMovie } from '../../moviesAPI/moviesAPI';
 
 import SearchMovies from '../../components/searchMovies';
@@ -15,30 +17,31 @@ const { IDLE, REJECTED, RESOLVED, PENDING } = status;
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [status, setStatus] = useState(IDLE);
-  const [query, setQuery] = useState('');
-  const isMounted = useRef(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query');
   useEffect(() => {
-    const fatchMovies = async () => {
-      setStatus(PENDING);
-      try {
-        const response = await getSearchMovie(query);
-        const { results } = response;
-        console.log('movi', results);
-        setMovies(results);
-        setStatus(RESOLVED);
-      } catch {
-        setStatus(REJECTED);
-      }
-    };
-    if (isMounted.current) {
+    if (query) {
+      const fatchMovies = async () => {
+        setStatus(PENDING);
+        try {
+          const response = await getSearchMovie(query);
+          const { results } = response;
+          console.log('movi', results);
+          setMovies(results);
+          setStatus(RESOLVED);
+        } catch {
+          setStatus(REJECTED);
+        }
+      };
+
       fatchMovies();
     }
-    isMounted.current = true;
   }, [query]);
+  console.log(query, 'moviesPage');
   return (
     <Movies>
       <section>
-        <SearchMovies onSubmit={setQuery} />
+        <SearchMovies onSubmit={setSearchParams} />
         <MoviesList movies={movies} />
       </section>
     </Movies>
