@@ -1,8 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 import MoviesList from '../../components/MoviesList';
 
 import { useSearchParams } from 'react-router-dom';
+
+import { BulletList } from 'react-content-loader';
 
 import { getSearchMovie } from '../../moviesAPI/moviesAPI';
 
@@ -12,6 +14,7 @@ import { Movies } from './MoviesPage.styled';
 
 import status from 'constants/status';
 
+const MyBulletListLoader = () => <BulletList />;
 const { IDLE, REJECTED, RESOLVED, PENDING } = status;
 
 const MoviesPage = () => {
@@ -42,7 +45,8 @@ const MoviesPage = () => {
     <Movies>
       <section>
         <SearchMovies onSubmit={setSearchParams} />
-        <MoviesList movies={movies} />
+        {status === RESOLVED && <MoviesList movies={movies} />}
+        {status === PENDING && <MyBulletListLoader />}
       </section>
     </Movies>
   );

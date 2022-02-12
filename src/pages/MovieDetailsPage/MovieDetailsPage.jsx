@@ -20,7 +20,6 @@ const MovieDetailsPage = () => {
   const [movie, setMovie] = useState({});
   const [status, setStatus] = useState(IDLE);
   const { moviesId } = useParams();
-  const location = useLocation();
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
