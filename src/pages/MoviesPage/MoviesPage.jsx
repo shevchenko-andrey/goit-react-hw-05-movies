@@ -14,7 +14,6 @@ import { Movies } from './MoviesPage.styled';
 
 import status from 'constants/status';
 
-const MyBulletListLoader = () => <BulletList />;
 const { IDLE, REJECTED, RESOLVED, PENDING } = status;
 
 const MoviesPage = () => {
@@ -46,7 +45,7 @@ const MoviesPage = () => {
       <section>
         <SearchMovies onSubmit={setSearchParams} />
         {status === RESOLVED && <MoviesList movies={movies} />}
-        {status === PENDING && <MyBulletListLoader />}
+        {status === PENDING && <BulletList />}
       </section>
     </Movies>
   );

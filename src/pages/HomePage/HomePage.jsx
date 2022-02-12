@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
+import { BulletList } from 'react-content-loader';
 import MoviesList from 'components/MoviesList';
 import { Home, HomeTitle } from './HomePage.styled';
 import status from 'constants/status';
@@ -28,18 +29,17 @@ const HomePages = () => {
     };
     fatchMovies();
   }, []);
-  if (status === RESOLVED) {
-    return (
-      <Home>
-        <section>
-          <HomeTitle>Trending today</HomeTitle>
-          <MoviesList movies={movies} />
-        </section>
-      </Home>
-    );
-  }
 
-  return <main></main>;
+  return (
+    <Home>
+      <section>
+        <HomeTitle>Trending today</HomeTitle>
+        {status === PENDING && <BulletList width="750px" />}
+        {status === RESOLVED && <MoviesList movies={movies} />}
+        {status === REJECTED && <main></main>}
+      </section>
+    </Home>
+  );
 };
 
 export default HomePages;
