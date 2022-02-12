@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 
 import { toast } from 'react-hot-toast';
 
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { useState, useEffect, Suspense } from 'react';
 
