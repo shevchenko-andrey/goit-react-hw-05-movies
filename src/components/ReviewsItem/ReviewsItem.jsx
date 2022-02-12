@@ -1,9 +1,15 @@
-const ReviewsList = ({ name, reviews }) => {
+import PropTypes from 'prop-types';
+import { StyledReviewsItem, ReviewsTitle } from './ReviewsItem.styled';
+const ReviewsItem = ({ name, reviews }) => {
   return (
-    <li>
-      <h3>{name}</h3>
+    <StyledReviewsItem>
+      <ReviewsTitle>{name}</ReviewsTitle>
       <p>{reviews}</p>
-    </li>
+    </StyledReviewsItem>
   );
 };
-export default ReviewsList;
+ReviewsItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  reviews: PropTypes.string.isRequired,
+};
+export default ReviewsItem;

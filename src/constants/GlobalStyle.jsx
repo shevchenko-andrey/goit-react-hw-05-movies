@@ -22,7 +22,7 @@ picture,
 svg {
   display: block;
   max-width: 100%;
-  height: auto;
+  max-height: 100%;
 }
 input,
 button,

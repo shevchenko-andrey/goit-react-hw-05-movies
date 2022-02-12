@@ -3,7 +3,6 @@ import { toast } from 'react-hot-toast';
 import MoviesList from 'components/MoviesList';
 import { Home, HomeTitle } from './HomePage.styled';
 import status from 'constants/status';
-import BackLink from '../../components/backLink';
 import { getTrendingMovies } from '../../moviesAPI/moviesAPI';
 import toastErrorConfig from '../../constants/toastErrorConfig';
 const { IDLE, REJECTED, RESOLVED, PENDING } = status;

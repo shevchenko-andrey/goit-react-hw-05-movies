@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCredits } from 'moviesAPI/moviesAPI';
+import { AuthorList } from './Cast.styled';
 import ActorsItem from 'components/ActorsItem';
 import status from 'constants/status';
+import CatalogMagic from '../Loader/CatalogMagic';
 const { IDLE, REJECTED, RESOLVED, PENDING } = status;
 
 const Cast = () => {
@@ -23,10 +25,9 @@ const Cast = () => {
     fatchCast();
   }, [moviesId]);
 
-  if (cast) {
-    console.log(cast);
+  if (status === RESOLVED) {
     return (
-      <ul>
+      <AuthorList>
         {cast.map(({ profile_path, id, original_name }) => (
           <ActorsItem
             key={id}
@@ -36,8 +37,11 @@ const Cast = () => {
             id={id}
           />
         ))}
-      </ul>
+      </AuthorList>
     );
+  }
+  if (status === PENDING) {
+    return <CatalogMagic />;
   }
 
   return <ul></ul>;

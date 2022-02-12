@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
+export const SearchButton = styled.button`
   min-width: 60px;
   border-radius: 10px;
   border: 3px solid #ddd;

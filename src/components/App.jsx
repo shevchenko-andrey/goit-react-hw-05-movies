@@ -18,7 +18,6 @@ const Cast = lazy(() => import('./Cast'));
 const Reviews = lazy(() => import('./Reviews'));
 
 export const App = () => {
-  console.log(GlobalStyle);
   return (
     <>
       <GlobalStyle />

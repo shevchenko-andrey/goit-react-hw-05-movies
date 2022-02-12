@@ -1,7 +1,7 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { SearchInput, SearchForm } from './searchMovies.styled';
-import { Button } from '../Button/Button';
+import { SearchButton } from '../Buttons/SearchButton.styled';
 const SearchMovies = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
   const handleSubmit = e => {
@@ -18,8 +18,11 @@ const SearchMovies = ({ onSubmit }) => {
         type="text"
       />
 
-      <Button>Search</Button>
+      <SearchButton>Search</SearchButton>
     </SearchForm>
   );
+};
+SearchMovies.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 export default SearchMovies;

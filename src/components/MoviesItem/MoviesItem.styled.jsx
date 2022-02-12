@@ -12,7 +12,7 @@ export const MoviesLink = styled(Link)`
   padding: 30px;
   transition: color 0.2s linear, background-color 0.2s linear;
   :hover {
-    background-color: #032541;
+    background-color: #0a8672;
     color: #ffffff;
   }
 `;

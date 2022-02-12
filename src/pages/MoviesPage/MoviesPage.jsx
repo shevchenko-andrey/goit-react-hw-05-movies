@@ -26,7 +26,7 @@ const MoviesPage = () => {
         try {
           const response = await getSearchMovie(query);
           const { results } = response;
-          console.log('movi', results);
+
           setMovies(results);
           setStatus(RESOLVED);
         } catch {
@@ -37,7 +37,7 @@ const MoviesPage = () => {
       fatchMovies();
     }
   }, [query]);
-  console.log(query, 'moviesPage');
+
   return (
     <Movies>
       <section>
