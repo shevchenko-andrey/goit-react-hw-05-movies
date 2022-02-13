@@ -6,7 +6,7 @@ import { App } from 'components/App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/goit-react-hw-05-movies/">
     <React.StrictMode>
       <App />
       <Toaster />
