@@ -1,14 +1,13 @@
-import { Outlet } from 'react-router-dom';
+import { Navigate, Outlet, useParams } from 'react-router-dom';
 
 import { toast } from 'react-hot-toast';
-
-import { useParams } from 'react-router-dom';
 
 import { useState, useEffect, Suspense } from 'react';
 
 import { getMovieDetailsById } from 'moviesAPI/moviesAPI';
 
 import { DetailsSection } from './MovieDetailsPage.styled';
+
 import Details from '../../components/Details';
 import Loader from '../../components/Loaders/LoaderDetails';
 import status from 'constants/status';
@@ -30,10 +29,7 @@ const MovieDetailsPage = () => {
         setStatus(RESOLVED);
       } catch {
         setStatus(REJECTED);
-        toast.error(
-          'Please check your connect and try again',
-          toastErrorConfig
-        );
+        toast.error('Page not found', toastErrorConfig);
       }
     };
     fetchMovieDetails();
@@ -63,6 +59,8 @@ const MovieDetailsPage = () => {
             overview={overview}
           />
         )}
+        {status === REJECTED && <Navigate to="/" />}
+
         <Suspense fallback="">
           <Outlet />
         </Suspense>
