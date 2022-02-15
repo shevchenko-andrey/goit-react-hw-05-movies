@@ -4,7 +4,7 @@ import { getReviews } from '../../moviesAPI/moviesAPI';
 import ReviewsItem from 'components/ReviewsItem';
 import { StyledReviewsList, NotReviews } from './Reviews.styled';
 import status from 'constants/status';
-import DoorDashFavorite from '../Loader/DoorDashFavorite';
+import DoorDashFavorite from '../Loaders/DoorDashFavorite';
 const { IDLE, RESOLVED, REJECTED, PENDING } = status;
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);

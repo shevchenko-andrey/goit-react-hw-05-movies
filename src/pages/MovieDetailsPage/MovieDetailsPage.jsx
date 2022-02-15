@@ -10,7 +10,7 @@ import { getMovieDetailsById } from 'moviesAPI/moviesAPI';
 
 import { DetailsSection } from './MovieDetailsPage.styled';
 import Details from '../../components/Details';
-import Loader from '../../components/Loader/LoaderDetails';
+import Loader from '../../components/Loaders/LoaderDetails';
 import status from 'constants/status';
 import toastErrorConfig from 'constants/toastErrorConfig';
 

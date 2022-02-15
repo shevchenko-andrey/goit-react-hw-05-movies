@@ -13,12 +13,12 @@ const SearchMovies = ({ onSubmit }) => {
     <SearchForm onSubmit={handleSubmit}>
       <SearchInput
         value={query}
-        onChange={e => setQuery(e.target.value)}
+        onChange={e => setQuery(e.target.value.trim())}
         placeholder="Search movies"
         type="text"
       />
 
-      <SearchButton>Search</SearchButton>
+      <SearchButton disabled={!query}>Search</SearchButton>
     </SearchForm>
   );
 };

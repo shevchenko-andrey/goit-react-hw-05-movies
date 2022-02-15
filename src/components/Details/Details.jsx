@@ -60,12 +60,12 @@ const Details = ({
         <StyledTitle>Addition information</StyledTitle>
         <AdditionRefList>
           <AdditionItem>
-            <NavigateButton to={`cast`} state={baseLocation}>
+            <NavigateButton to={`cast`} state={{ from: baseLocation }}>
               Cast
             </NavigateButton>
           </AdditionItem>
           <AdditionItem>
-            <NavigateButton to={`reviews`} state={baseLocation}>
+            <NavigateButton to={`reviews`} state={{ from: baseLocation }}>
               reviews
             </NavigateButton>
           </AdditionItem>

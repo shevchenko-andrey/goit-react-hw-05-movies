@@ -11,6 +11,7 @@ const MoviesItem = ({ name, id }) => {
     </StyledMoviesItem>
   );
 };
+
 MoviesItem.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,

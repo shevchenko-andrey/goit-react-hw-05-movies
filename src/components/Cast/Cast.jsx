@@ -4,7 +4,7 @@ import { getMovieCredits } from 'moviesAPI/moviesAPI';
 import { AuthorList } from './Cast.styled';
 import ActorsItem from 'components/ActorsItem';
 import status from 'constants/status';
-import CatalogMagic from '../Loader/CatalogMagic';
+import ImageGrid from '../Loaders/ImageGrid';
 const { IDLE, REJECTED, RESOLVED, PENDING } = status;
 
 const Cast = () => {
@@ -41,7 +41,7 @@ const Cast = () => {
     );
   }
   if (status === PENDING) {
-    return <CatalogMagic />;
+    return <ImageGrid width="400px" />;
   }
 
   return <ul></ul>;

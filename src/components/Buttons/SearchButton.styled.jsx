@@ -7,7 +7,13 @@ export const SearchButton = styled.button`
   padding: 10px;
 
   transition: border-color 0.2s linear;
+  :disabled {
+    color: #807e7edf;
+  }
   :hover {
     border-color: #032541;
+  }
+  :hover[disabled] {
+    border-color: #ddd;
   }
 `;
